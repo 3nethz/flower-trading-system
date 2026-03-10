@@ -1,2 +1,129 @@
-# flower-trading-system
-C++ implementation of a simplified flower trading exchange with order book matching and execution report generation.
+# Flower Trading System
+
+A simplified trading exchange system implemented in **C++**. The system processes buy and sell orders for different types of flowers, matches them using an **order book mechanism**, and generates **execution reports**.
+
+This project was developed as part of the **C++ Workshop Series at the University of Moratuwa**.
+
+---
+
+## Overview
+
+The Flower Trading System simulates a basic exchange platform where traders submit buy or sell orders. The exchange application processes these orders against existing orders stored in the **order book** and performs trade executions when matching conditions are satisfied.
+
+Each order submitted to the system generates an **Execution Report** indicating whether the order was:
+- Accepted
+- Rejected
+- Partially filled
+- Fully filled
+
+---
+
+## Supported Instruments
+
+The system currently supports trading for the following flower types:
+
+- Rose  
+- Lavender  
+- Lotus  
+- Tulip  
+- Orchid  
+
+---
+
+## Input
+
+The system reads order data from a CSV file:
+
+orders.csv
+
+Each order contains the following fields:
+
+| Field | Description |
+|------|-------------|
+| Client Order ID | Unique identifier for the order |
+| Instrument | Flower type |
+| Side | Buy (1) or Sell (2) |
+| Price | Price per unit |
+| Quantity | Order quantity |
+
+---
+
+## Output
+
+After processing orders, the system generates an execution report file:
+
+execution_rep.csv
+
+The execution report includes:
+
+- Client Order ID  
+- System generated Order ID  
+- Instrument  
+- Side  
+- Price  
+- Quantity  
+- Order Status  
+- Reject Reason (if applicable)  
+- Transaction Time  
+
+---
+
+## Order Matching Logic
+
+The exchange maintains a **separate order book for each flower type**.
+
+Matching rules:
+
+- **Buy orders** are prioritized by **higher price first**
+- **Sell orders** are prioritized by **lower price first**
+- Orders with the same price follow **time priority**
+- Incoming orders may result in:
+  - New order added to the order book
+  - Full execution
+  - Partial execution
+  - Order rejection
+
+---
+
+## Input Validations
+
+An order will be rejected if:
+
+- Required fields are missing
+- Instrument type is invalid
+- Side value is invalid
+- Price is not greater than zero
+- Quantity is not a multiple of **10**
+- Quantity is outside the range **10 – 1000**
+
+---
+
+## Project Structure
+
+flower-trading-system
+│
+├── orders.csv
+├── execution_rep.csv
+├── src/
+├── include/
+└── README.md
+
+
+---
+
+## Evaluation
+
+The project will be evaluated based on:
+
+- System design
+- Code quality and organization
+- Functional correctness
+- Program efficiency and performance
+
+During the demonstration, the system will be tested using different input datasets.
+
+---
+
+## Authors
+
+Developed as part of the **C++ Workshop Series Project** at the **University of Moratuwa**.
