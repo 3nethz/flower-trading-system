@@ -1,0 +1,14 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Build folders
+build/
+cmake-build-debug/
